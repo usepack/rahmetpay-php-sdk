@@ -1,0 +1,33 @@
+{
+    "name": "rahmetapp/rahmetpay-php-sdk",
+    "description": "RahmetPay's PHP SDK",
+    "keywords": ["rahmetpay", "payments", "rest", "sdk"],
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "rahmet-dev",
+            "homepage": "https://github.com/rahmetapp/rahmetpay-php-sdk/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-openssl": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8.35 || ^5.7",
+        "mockery/mockery": "^0.9.9"
+    },
+    "autoload": {
+        "psr-0": {
+            "RahmetPay\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\RahmetPay\\": "tests/"
+        }
+    }
+}
