@@ -8,5 +8,4 @@ interface BaseMethods
      * @param array $params
      */
     public function make($params);
-
 }
