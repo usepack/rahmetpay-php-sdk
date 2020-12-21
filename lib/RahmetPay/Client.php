@@ -96,10 +96,14 @@ class Client
      * @param $clientId
      * @param $clientSecret
      * @return array
+     * @throws Exceptions\PropertyNotFound
      */
     public function auth($clientId, $clientSecret)
     {
-        return (new Auth($this->getAllOptions()))->make($clientId, $clientSecret);
+        return (new Auth($this->getAllOptions()))->make([
+            'client_id' => $clientId,
+            'client_secret' => $clientSecret
+        ]);
     }
 
     /**
@@ -107,7 +111,7 @@ class Client
      */
     public function availability()
     {
-        return (new Availability($this->getAllOptions()))->make();
+        return (new Availability($this->getAllOptions()))->make([]);
     }
 
     /**
@@ -135,9 +139,14 @@ class Client
      * @param $amount
      * @param null $idempotency
      * @return array
+     * @throws Exceptions\PropertyNotFound
      */
     public function refund($merchantOrderId, $amount, $idempotency = null)
     {
-        return (new OrderRefund($this->getAllOptions()))->make($merchantOrderId, $amount, $idempotency);
+        return (new OrderRefund($this->getAllOptions()))->make([
+            'merchant_order_id' => $merchantOrderId,
+            'amount' => $amount,
+            'idempotency' => $idempotency
+        ]);
     }
 }

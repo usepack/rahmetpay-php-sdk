@@ -3,32 +3,42 @@
 namespace RahmetPay\Methods\Orders;
 
 use RahmetPay\Exceptions\PropertyNotFound as PropertyNotFoundExceptions;
+use RahmetPay\Methods\BaseMethods;
 use RahmetPay\Request\Guzzle\Base as HttpBase;
 
-class Create extends HttpBase
+class Create extends HttpBase implements BaseMethods
 {
     const CREATE_PATH = "orders/v1/preorder/create";
 
     /**
      * Создание заказа.
-     * @param array $data
+     * @param array $params
      * @return array
      * @throws PropertyNotFoundExceptions
      */
-    public function make($data)
+    public function make($params)
     {
-        if (!$data['merchant_order_id'] || empty($data['merchant_order_id'])) {
+        $this->validation($params);
+
+        return $this->post(self::CREATE_PATH, $params);
+    }
+
+    /**
+     * @param array $params
+     * @throws PropertyNotFoundExceptions
+     */
+    private function validation($params)
+    {
+        if (!$params['merchant_order_id'] || empty($params['merchant_order_id'])) {
             throw new PropertyNotFoundExceptions('merchant_order_id');
         }
 
-        if (!$data['amount'] || empty($data['amount'])) {
+        if (!$params['amount'] || empty($params['amount'])) {
             throw new PropertyNotFoundExceptions('amount');
         }
 
-        if (!$data['token'] || empty($data['token'])) {
+        if (!$params['token'] || empty($params['token'])) {
             throw new PropertyNotFoundExceptions('token');
         }
-
-        return $this->post(self::CREATE_PATH, $data);
     }
 }
