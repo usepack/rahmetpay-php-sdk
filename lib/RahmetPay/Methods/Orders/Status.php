@@ -2,19 +2,18 @@
 
 namespace RahmetPay\Methods\Orders;
 
-use RahmetPay\Exceptions\Curl as CurlExceptions;
 use RahmetPay\Exceptions\PropertyNotFound as PropertyNotFoundExceptions;
 use RahmetPay\Exceptions\PropertyFormat as PropertyFormatExceptions;
-use RahmetPay\Request\Curl\Base as CurlBase;
+use RahmetPay\Request\Guzzle\Base as HttpBase;
 
-class Status extends CurlBase
+class Status extends HttpBase
 {
     const STATUS_PATH = "orders/v1/preorder/status";
 
     /**
      * Проверка статуса.
      * @param array $data
-     * @throws CurlExceptions
+     * @return array
      * @throws PropertyFormatExceptions|PropertyNotFoundExceptions
      */
     public function make($data)
@@ -27,6 +26,6 @@ class Status extends CurlBase
             throw new PropertyNotFoundExceptions('merchant_order_ids');
         }
 
-        $this->post(self::STATUS_PATH, $data);
+        return $this->post(self::STATUS_PATH, $data);
     }
 }

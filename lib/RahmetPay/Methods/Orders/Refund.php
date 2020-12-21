@@ -2,10 +2,9 @@
 
 namespace RahmetPay\Methods\Orders;
 
-use RahmetPay\Exceptions\Curl as CurlExceptions;
-use RahmetPay\Request\Curl\Base as CurlBase;
+use RahmetPay\Request\Guzzle\Base as HttpBase;
 
-class Refund extends CurlBase
+class Refund extends HttpBase
 {
     const STATUS_PATH = "orders/v1/preorder/status";
 
@@ -14,7 +13,7 @@ class Refund extends CurlBase
      * @param mixed $merchantOrderId
      * @param integer $amount
      * @param null $idempotency
-     * @throws CurlExceptions
+     * @return array
      */
     public function make($merchantOrderId, $amount, $idempotency = null)
     {
@@ -24,7 +23,7 @@ class Refund extends CurlBase
             $headers = ['X-Idempotency-Key' => $idempotency];
         }
 
-        $this->post(self::STATUS_PATH, [
+        return $this->post(self::STATUS_PATH, [
             'merchant_order_id' => $merchantOrderId,
             'amount' => $amount
         ], $headers);

@@ -2,18 +2,17 @@
 
 namespace RahmetPay\Methods\Orders;
 
-use RahmetPay\Exceptions\Curl as CurlExceptions;
 use RahmetPay\Exceptions\PropertyNotFound as PropertyNotFoundExceptions;
-use RahmetPay\Request\Curl\Base as CurlBase;
+use RahmetPay\Request\Guzzle\Base as HttpBase;
 
-class Create extends CurlBase
+class Create extends HttpBase
 {
     const CREATE_PATH = "orders/v1/preorder/create";
 
     /**
      * Создание заказа.
      * @param array $data
-     * @throws CurlExceptions
+     * @return array
      * @throws PropertyNotFoundExceptions
      */
     public function make($data)
@@ -30,6 +29,6 @@ class Create extends CurlBase
             throw new PropertyNotFoundExceptions('token');
         }
 
-        $this->post(self::CREATE_PATH, $data);
+        return $this->post(self::CREATE_PATH, $data);
     }
 }

@@ -2,10 +2,9 @@
 
 namespace RahmetPay\Methods;
 
-use RahmetPay\Exceptions\Curl as CurlExceptions;
-use RahmetPay\Request\Curl\Base as CurlBase;
+use RahmetPay\Request\Guzzle\Base as HttpBase;
 
-class Auth extends CurlBase
+class Auth extends HttpBase
 {
     const AUTH_PATH = "auth/token";
 
@@ -13,11 +12,11 @@ class Auth extends CurlBase
      * Авторизация.
      * @param $clientId
      * @param $clientSecret
-     * @throws CurlExceptions
+     * @return array
      */
     public function make($clientId, $clientSecret)
     {
-        $this->post(self::AUTH_PATH, [
+        return $this->post(self::AUTH_PATH, [
             'grant_type' => 'client_credentials',
             'client_id' => $clientId,
             'client_secret' => $clientSecret

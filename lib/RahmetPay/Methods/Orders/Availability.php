@@ -2,19 +2,17 @@
 
 namespace RahmetPay\Methods\Orders;
 
-use RahmetPay\Exceptions\Curl as CurlExceptions;
-use RahmetPay\Request\Curl\Base as CurlBase;
+use RahmetPay\Request\Guzzle\Base as HttpBase;
 
-class Availability extends CurlBase
+class Availability extends HttpBase
 {
     const AVAILABILITY_PATH = "orders/v1/preorder/availability";
 
     /**
      * Доступность оплаты.
-     * @throws CurlExceptions
      */
     public function make()
     {
-        $this->get(self::AVAILABILITY_PATH);
+        return $this->get(self::AVAILABILITY_PATH);
     }
 }
