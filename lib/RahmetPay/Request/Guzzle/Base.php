@@ -14,7 +14,7 @@ class Base extends Client
      */
     public function get($uri, $data = [], $headers = [])
     {
-        $this->fetchResponseContents(
+        return $this->fetchResponseContents(
             parent::get($uri, [
                 'headers' => $headers,
                 'query' => $data

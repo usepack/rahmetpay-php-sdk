@@ -73,9 +73,12 @@ class Client
         $this->options = $options;
     }
 
-    public function __construct($basePath, $bearerToken, $options = [])
+    public function __construct($basePath, $bearerToken = null, $options = [])
     {
-        $this->setBearerToken($bearerToken);
+        if ($bearerToken !== null) {
+            $this->setBearerToken($bearerToken);
+        }
+
         $this->setBasePath($basePath);
         $this->setOptions($options);
     }
