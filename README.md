@@ -1,2 +1,1 @@
-# rahmetpay-php-sdk
-RahmetPay PHP Client Library
+# RahmetPay PHP Client Library
