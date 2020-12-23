@@ -50,6 +50,7 @@ $rahmetPayClient = new Client($basePath);
 
 Для авторизации необходимо вызвать метод auth.
 В качестве параметров необходимо передать Client Id и Client Secret
+Подробнее о методе и формате ответа Вы можете посмотреть в [документации метода auth](https://rahmetpay.readthedocs.io/en/latest/auth/)
 ```php
 $rahmetPayClient->auth($clientId, $clientSecret);
 ```
@@ -60,20 +61,20 @@ $rahmetPayClient->setBearerToken($bearerToken);
 ```
 
 Для создания заказа необходимо вызвать метод create.
-В качестве параметра указывается массив (все возможные поля массива Вы можете посмотреть в [документации](https://rahmetpay.readthedocs.io/en/latest/order/))
+В качестве параметра указывается массив (все возможные поля массива и формат ответа Вы можете посмотреть в [документации метода create](https://rahmetpay.readthedocs.io/en/latest/order/))
 ```php
 $rahmetPayClient->create($arrayCreate);
 ```
 
 Для проверки доступности оплаты необходимо вызвать метод availability.
-Подробнее Вы можете посмотреть в [документации](https://rahmetpay.readthedocs.io/en/latest/availability/)
+Подробнее о формате ответа Вы можете посмотреть в [документации метода availability](https://rahmetpay.readthedocs.io/en/latest/availability/)
 ```php
 $rahmetPayClient->availability();
 ```
 
 Для проверки статуса оплаты заказа необходимо вызвать метод status.
 В качестве параметра указывается массив id заказов с ключем merchant_order_ids
-Подробнее Вы можете посмотреть в [документации](https://rahmetpay.readthedocs.io/en/latest/status/)
+Подробнее о методе и формате ответа Вы можете посмотреть в [документации метода status](https://rahmetpay.readthedocs.io/en/latest/status/)
 ```php
 $rahmetPayClient->status($arrayCheck);
 ```
@@ -81,7 +82,7 @@ $rahmetPayClient->status($arrayCheck);
 
 Для возврата необходимо вызвать метод refund.
 В качестве параметров указываются merchant_order_id (id заказа в вашей системе), amount (сумма для возврата), idempotent - UUID-V4
-Подробнее Вы можете посмотреть в [документации](https://rahmetpay.readthedocs.io/en/latest/refund/)
+Подробнее о методе и формате ответа Вы можете посмотреть в [документации метода refund](https://rahmetpay.readthedocs.io/en/latest/refund/)
 ```php
 $rahmetPayClient->refund(100500, 5000, $idempotent);
 ```
