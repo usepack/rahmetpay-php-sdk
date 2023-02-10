@@ -21,7 +21,7 @@ class Status extends HttpBase implements BaseMethods
     {
         $this->validation($params);
 
-        return $this->post(self::STATUS_PATH, $params);
+        return $this->postRequest(self::STATUS_PATH, $params);
     }
 
     /**

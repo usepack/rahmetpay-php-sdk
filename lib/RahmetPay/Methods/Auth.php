@@ -20,7 +20,7 @@ class Auth extends HttpBase implements BaseMethods
     {
         $this->validation($params);
 
-        return $this->post(self::AUTH_PATH, [
+        return $this->postRequest(self::AUTH_PATH, [
             'grant_type' => 'client_credentials',
             'client_id' => $params['client_id'],
             'client_secret' => $params['client_secret']

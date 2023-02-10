@@ -26,7 +26,7 @@ class Refund extends HttpBase implements BaseMethods
             $headers = ['X-Idempotency-Key' => $params['idempotency']];
         }
 
-        return $this->post(self::STATUS_PATH, [
+        return $this->postRequest(self::STATUS_PATH, [
             'merchant_order_id' => $params['merchant_order_id'],
             'amount' => $params['amount']
         ], $headers);

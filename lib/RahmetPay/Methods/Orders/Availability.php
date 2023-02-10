@@ -16,6 +16,6 @@ class Availability extends HttpBase implements BaseMethods
      */
     public function make($params = [])
     {
-        return $this->get(self::AVAILABILITY_PATH);
+        return $this->getRequest(self::AVAILABILITY_PATH);
     }
 }

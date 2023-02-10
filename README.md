@@ -5,7 +5,7 @@ PHP клиент для работы с RahmetPay API.
 Документация по работе с [API RahmetPay](https://rahmetpay.readthedocs.io/en/latest/)
 
 ## Пример
-Пример скрипта находится в папке [example](https://github.com/rahmetapp/rahmetpay-php-sdk/tree/master/example)
+Пример скрипта находится в папке [example](https://github.com/usepack/rahmetpay-php-sdk/tree/master/example)
 
 ## Требования
 PHP 5.6 (и выше) с расширением ext-json
@@ -16,16 +16,16 @@ PHP 5.6 (и выше) с расширением ext-json
 1. Установите менеджер пакетов Composer.
 2. В консоли выполните команду
 ```bash
-composer require rahmetapp/rahmetpay-php-sdk
+composer require usepack/rahmetpay-php-sdk
 ```
 
 ### Или в файл composer.json своего проекта
-1. Добавьте строку `"rahmetapp/rahmetpay-php-sdk": "^1.0"` в список зависимостей
+1. Добавьте строку `"usepack/rahmetpay-php-sdk": "^1.0"` в список зависимостей
 ```
 ...
     "require": {
         "php": ">=5.6",
-        "rahmetapp/rahmetpay-php-sdk": "^1.0"
+        "usepack/rahmetpay-php-sdk": "^1.0"
 ...
 ```
 

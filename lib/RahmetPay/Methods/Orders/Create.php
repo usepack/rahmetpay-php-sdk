@@ -20,7 +20,7 @@ class Create extends HttpBase implements BaseMethods
     {
         $this->validation($params);
 
-        return $this->post(self::CREATE_PATH, $params);
+        return $this->postRequest(self::CREATE_PATH, $params);
     }
 
     /**

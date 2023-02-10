@@ -1,5 +1,5 @@
 {
-    "name": "rahmetapp/rahmetpay-php-sdk",
+    "name": "usepack/rahmetpay-php-sdk",
     "description": "RahmetPay's PHP SDK",
     "keywords": ["rahmetpay", "payments", "rest", "sdk"],
     "license": "MIT",
@@ -7,12 +7,12 @@
     "authors": [
         {
             "name": "rahmet-dev",
-            "homepage": "https://github.com/rahmetapp/rahmetpay-php-sdk/contributors"
+            "homepage": "https://github.com/usepack/rahmetpay-php-sdk/contributors"
         }
     ],
     "require": {
         "php": ">=5.6.0",
-        "guzzlehttp/guzzle": "6.*",
+        "guzzlehttp/guzzle": "^7",
         "ext-json": "*"
     },
     "require-dev": {

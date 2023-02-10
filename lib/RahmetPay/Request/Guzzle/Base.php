@@ -12,7 +12,7 @@ class Base extends Client
      * @param array $headers
      * @return array
      */
-    public function get($uri, $data = [], $headers = [])
+    public function getRequest($uri, $data = [], $headers = [])
     {
         return $this->fetchResponseContents(
             parent::get($uri, [
@@ -28,7 +28,7 @@ class Base extends Client
      * @param array $headers
      * @return array
      */
-    public function post($uri, $data = [], $headers = [])
+    public function postRequest($uri, $data = [], $headers = [])
     {
         return $this->fetchResponseContents(
             parent::post($uri, [
@@ -44,7 +44,7 @@ class Base extends Client
      * @param array $headers
      * @return array
      */
-    public function put($uri, $data = [], $headers = [])
+    public function putRequest($uri, $data = [], $headers = [])
     {
         return $this->fetchResponseContents(
             parent::put($uri, [
